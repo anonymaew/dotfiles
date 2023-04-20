@@ -1,0 +1,3 @@
+[submodule ".config/p10k"]
+	path = .config/p10k
+	url = git@github.com:romkatv/powerlevel10k.git
