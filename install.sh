@@ -7,4 +7,4 @@ rsync --exclude '.git/' \
 	--exclude 'install.sh' \
 	-avh . ~
 
-source ~/.bashrc
+source ~/.profile
