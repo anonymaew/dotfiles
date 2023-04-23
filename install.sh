@@ -1,10 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
-rsync --exclude '.git/' \
-	--exclude '.gitmodules/' \
-	--exclude 'README.md' \
-	--exclude 'Dockerfile' \
-	--exclude 'install.sh' \
-	-avh . ~
+# move all config files to home dir
+rsync --exclude-from='.dockerignore' -avh . ~
 
+# source it
 source ~/.profile
