@@ -1,13 +1,13 @@
-FROM ubuntu:22.04
+FROM alpine:latest
 
 # prereq programs
-RUN apt-get clean && apt-get update && apt install -y \
+RUN apk update && apk add \
 	wget curl git zsh tmux neovim nodejs
 
 # create non-root user
-RUN groupadd -r napatsc && useradd -r -g napatsc napatsc
+RUN addgroup -S napatsc && adduser -S napatsc -G napatsc
 USER napatsc
 WORKDIR /home/napatsc
 
-# mountable volume at home dir
-VOLUME ['/home/napatsc'] 
+# copy all dotfiles environment
+COPY --chown=napatsc . . 
