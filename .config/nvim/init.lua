@@ -14,17 +14,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  -- VSCode theme
-  {
+  { -- VSCode theme
     'tomasiser/vim-code-dark',
     lazy = false,
     priority = 1000,
     config = function()
-	    vim.cmd.colorscheme('codedark')
+      vim.cmd.colorscheme('codedark')
     end,
   },
-  -- Add indentation guides even on blank lines
-  {
+  { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     opts = {
       char = '┊',
@@ -36,6 +34,8 @@ require('lazy').setup({
   -- tpope plugins
   'tpope/vim-sleuth',
   'tpope/vim-sensible',
+  -- GitHub Copilot
+  'github/copilot.vim',
 })
 
 vim.wo.number = true
