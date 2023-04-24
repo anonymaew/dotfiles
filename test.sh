@@ -8,7 +8,7 @@ if ! [ -x $(command -v docker) ]; then
 fi
 
 # build an image if it does not exist
-if [ -z $(docker images -q) ]; then
+if [ -z $(docker images -q $IMAGE) ]; then
     docker build -t "$IMAGE" ./
 fi
 
