@@ -2,7 +2,7 @@ FROM alpine:latest
 
 # prereq programs
 RUN apk update && apk add \
-	wget curl git zsh tmux neovim nodejs
+	bash curl git neovim nodejs tmux wget zsh 
 
 # create non-root user
 RUN addgroup -S napatsc && adduser -S napatsc -G napatsc
