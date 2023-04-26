@@ -1,0 +1,6 @@
+[submodule ".config/p10k"]
+	path = .config/p10k
+	url = https://github.com/romkatv/powerlevel10k.git
+[submodule ".local/share/tmux/plugins/tpm"]
+	path = .local/share/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
