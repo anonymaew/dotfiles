@@ -29,6 +29,10 @@ require('lazy').setup({
       show_trailing_blankline_indent = false,
     },
   },
+  { -- Seemless navigation between tmux and vim 
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
+  },
   -- Commenting code using gc
   { 'numToStr/Comment.nvim', opts = {} },
   -- tpope plugins
