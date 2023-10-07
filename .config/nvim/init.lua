@@ -38,6 +38,7 @@ require('lazy').setup({
   -- tpope plugins
   'tpope/vim-sleuth',
   'tpope/vim-sensible',
+  'tpope/vim-surround',
   -- GitHub Copilot
   'github/copilot.vim',
 })
