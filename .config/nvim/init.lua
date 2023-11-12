@@ -22,6 +22,23 @@ require('lazy').setup({
       vim.cmd.colorscheme('codedark')
     end,
   },
+  { -- Treesitter for better syntax highlighting
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    lazy = false,
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = 'all',
+        highlight = {
+          enable = true,
+          disable = { 'latex' },
+        },
+        indent = {
+          enable = true,
+        },
+      }
+    end,
+  },
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     opts = {
@@ -41,6 +58,8 @@ require('lazy').setup({
   'tpope/vim-surround',
   -- GitHub Copilot
   'github/copilot.vim',
+  -- LSP, linter, formatter
+  'williamboman/mason.nvim',
 })
 
 vim.wo.number = true
