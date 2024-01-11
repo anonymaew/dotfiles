@@ -31,7 +31,7 @@ require('lazy').setup({
         ensure_installed = 'all',
         highlight = {
           enable = true,
-          disable = { 'latex' },
+          disable = { 'markdown', 'latex' },
         },
         indent = {
           enable = true,
