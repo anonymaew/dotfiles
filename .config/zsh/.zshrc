@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-HISTFILE=$ZDOTDIR/.zsh_history
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 source $XDG_CONFIG_HOME/p10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
