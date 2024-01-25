@@ -39,6 +39,11 @@ require('lazy').setup({
       }
     end,
   },
+  { -- For Jupyter Notebook
+    "GCBallesteros/jupytext.nvim",
+    config = true,
+    lazy = false,
+  },
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     opts = {
@@ -56,8 +61,15 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'tpope/vim-sensible',
   'tpope/vim-surround',
-  -- GitHub Copilot
-  'github/copilot.vim',
+  { -- GitHub Copilot
+    'github/copilot.vim',
+    init = function()
+      vim.g.copilot_filetypes = {
+	markdown = 1,
+	yaml = 1
+      }
+    end,
+  },
   -- LSP, linter, formatter
   'williamboman/mason.nvim',
 })
