@@ -19,6 +19,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
+      vim.g.codedark_transparent = 1
       vim.cmd.colorscheme('codedark')
     end,
   },

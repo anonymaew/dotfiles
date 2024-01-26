@@ -4,4 +4,4 @@
 rsync --exclude 'Dockerfile' --exclude '*.sh' --exclude '*.md' --exclude '.git*' -a $(dirname "$0")/ ~
 
 # source it
-source ~/.profile
+source ~/.zshenv
