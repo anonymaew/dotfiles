@@ -5,6 +5,8 @@ export XDG_RUNTIME_DIR="/run/user/$UID"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 export EDITOR="nvim"
+export KUBECONFIG="$XDG_CONFIG_HOME/kube" 
+export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg 
 export GOPATH="$XDG_DATA_HOME"/go
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
