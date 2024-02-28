@@ -47,10 +47,8 @@ require('lazy').setup({
   },
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    main = 'ibl',
+    opts = {},
   },
   { -- Seemless navigation between tmux and vim 
     'christoomey/vim-tmux-navigator',
@@ -58,6 +56,10 @@ require('lazy').setup({
   },
   -- Commenting code using gc
   { 'numToStr/Comment.nvim', opts = {} },
+  { -- Telescope for fuzzy finding
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   -- tpope plugins
   'tpope/vim-sleuth',
   'tpope/vim-sensible',
@@ -71,8 +73,6 @@ require('lazy').setup({
       }
     end,
   },
-  -- LSP, linter, formatter
-  'williamboman/mason.nvim',
 })
 
 vim.wo.number = true
