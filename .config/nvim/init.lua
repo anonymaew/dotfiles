@@ -1,5 +1,20 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.opt.number = true
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.breakindent = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.undofile = true
+vim.opt.scrolloff = 8
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.diagnostic.config { update_in_insert = true }
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -48,14 +63,15 @@ require('lazy').setup({
     main = 'ibl',
     opts = {},
   },
-  { -- Seemless navigation between tmux and vim 
+  { -- Seemless navigation between tmux and vim
     'christoomey/vim-tmux-navigator',
     lazy = false,
   },
   -- Commenting code using gc
   { 'numToStr/Comment.nvim', opts = {} },
   { -- Telescope for fuzzy finding
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
@@ -71,7 +87,6 @@ require('lazy').setup({
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
-
           local map = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
@@ -159,6 +174,17 @@ require('lazy').setup({
     end,
   },
 
+  { -- Autoformat
+    'stevearc/conform.nvim',
+    opts = {
+      notify_on_error = false,
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+    },
+  },
+
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -221,14 +247,9 @@ require('lazy').setup({
     'github/copilot.vim',
     init = function()
       vim.g.copilot_filetypes = {
-	markdown = 1,
-	yaml = 1
+        markdown = 1,
+        yaml = 1
       }
     end,
   },
 })
-
-vim.wo.number = true
-vim.o.clipboard = 'unnamedplus'
-vim.o.breakindent = true
-vim.o.undofile = true
