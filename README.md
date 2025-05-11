@@ -1,5 +1,7 @@
 # Dotfiles
 
+UPDATE: moved to [Nix declaration](https://github.com/anonymaew/config.nix).
+
 My dotfiles config for my linux environment setup
 
 ## Install
